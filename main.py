@@ -54,7 +54,6 @@ class User:
         groups = groups_response['items']
         friends_response = self.get_friends()
         friends = friends_response['items']
-
         groups_list = [i['id'] for i in groups]
         group_friends_count = dict.fromkeys(groups_list, 0)
         result = []
@@ -89,7 +88,7 @@ if __name__ == '__main__':
     urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
     TOKEN = "ed1271af9e8883f7a7c2cefbfddfcbc61563029666c487b2f71a5227cce0d1b533c4af4c5b888633c06ae"
     # source_uid = 171691064
-    int(input('Введите идентификатор пользователя: '))
+    source_uid = int(input('Введите идентификатор пользователя: '))
     usr = User(TOKEN, source_uid)
     groups = usr.get_exclusive_groups()
     groups_result = groups_format(groups)
